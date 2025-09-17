@@ -18,10 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('pdf')->nullable();
             $table->integer('year_published');
-            $table->unsignedInteger('read_count')->default(0);
-            $table->unsignedInteger('rents_count')->default(0);
-            $table->unsignedInteger('page_count')->default(0);
-            $table->boolean('status')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
