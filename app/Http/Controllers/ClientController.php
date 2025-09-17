@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\Rest\AddRequest;
-use App\Http\Requests\Rest\ReturnRequest;
 use App\Services\ClientService;
 
 class ClientController extends Controller
@@ -22,16 +21,15 @@ class ClientController extends Controller
         return $this->clientService->getRentById($id);
     }
 
-    public function addRentBook(AddRequest $request)
+    public function addRentBook(AddRequest $request, $id)
     {
         $data = $request->validated();
-        return $this->clientService->addRentBook($data);
+        return $this->clientService->addRentBook($data, $id);
     }
 
-    public function restore(ReturnRequest $request)
+    public function restore($id)
     {
-        $data = $request->validated();
-        return $this->clientService->restore($data);
+        return $this->clientService->restore($id);
     }
 
     public function expireds()

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Book\AddRequest;
 use App\Http\Requests\Book\ListRequest;
 use App\Services\BookService;
-use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -19,5 +17,13 @@ class BookController extends Controller
 
     public function show($id){
         return $this->service->getBookById($id);
+    }
+
+    public function nowRentedBooks(){
+        return $this->service->mostRentedBooks();
+    }
+
+    public function mostActiveBooks(){
+        return $this->service->mostActiveBooks();
     }
 }

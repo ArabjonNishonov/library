@@ -15,14 +15,14 @@ class RentController extends Controller
     }
 
     public function rentBook($bookId){
-        return $this->service->rentBook($bookId);
+        return $this->service->getRentById($bookId);
     }
 
     public function expireds(){
         return $this->service->expireds();
     }
 
-    public function expiredBook($bookId){
-        return $this->service->returnBook($bookId);
+    public function expiredBookId($bookId){
+        return $this->service->expiredBookId($bookId);
     }
 }
