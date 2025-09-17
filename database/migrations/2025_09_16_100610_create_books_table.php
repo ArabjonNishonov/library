@@ -17,8 +17,10 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained('users')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->string('pdf')->nullable();
-            $table->integer('year_published');
-            $table->boolean('is_active')->default(true);
+            $table->integer('published_at')->nullable();
+            $table->unsignedBigInteger('page_count')->nullable();
+            $table->unsignedBigInteger('rents_count')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

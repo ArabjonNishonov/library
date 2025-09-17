@@ -20,7 +20,7 @@ class BookController extends Controller
     }
 
     public function nowRentedBooks(){
-        return $this->service->mostRentedBooks();
+        return $this->service->nowRentedBooks();
     }
 
     public function mostActiveBooks(){

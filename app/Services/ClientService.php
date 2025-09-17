@@ -37,7 +37,6 @@ class ClientService
                 return response()->json(['message' => 'Book not found'], 404);
             }
         }
-        $book->read_count += 1;
         $book->increment('rents_count');
         $book->save();
         $rent = Rent::query()->where('book_id', $id)->where('user_id', $user->id)->whereNull('returned_at')->first();
