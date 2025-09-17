@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Author\changeStatusBookRequest;
 use App\Http\Requests\Book\AddRequest;
 use App\Services\AuthorService;
-use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {

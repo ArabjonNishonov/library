@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
             $table->foreignId('client_id')->constrained('users')->onDelete('cascade');
-            $table->date('return_date')->nullable();
             $table->date('expired_date')->nullable();
             $table->timestamps();
         });
