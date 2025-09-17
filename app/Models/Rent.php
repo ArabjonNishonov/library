@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rent extends Model
 {
-    //
+    public $guarded = ['id'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function book(){
+        return $this->belongsTo(Book::class);
+    }
 }

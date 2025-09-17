@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rents', function (Blueprint $table) {
+        Schema::create('expired_books', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
             $table->foreignId('client_id')->constrained('users')->onDelete('cascade');
-            $table->date('rented_at');
-            $table->date('due_date');
-            $table->date('returned_at')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->date('return_date')->nullable();
+            $table->date('expired_date')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rents');
+        Schema::dropIfExists('expired_books');
     }
 };

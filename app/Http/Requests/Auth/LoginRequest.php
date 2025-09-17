@@ -6,23 +6,26 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'login' => 'required|email',
+            'password' => 'required|string|min:6',
+            'c_password' => 'required|string|min:6|same:password',
+        ];
+    }
+
+    public function messages(): array{
+        return [
+            'login.required' => 'The login field is required.',
+            'login.email' => 'The login must be a email.',
+            'password.string' => 'The password must be a string.',
+            'c_password.string' => 'The password confirmation must be a string.',
+            'c_password.same' => 'The password confirmation does not match.',
+            'password.required' => 'The password field is required.',
+            'password.min' => 'The password must be at least 6 characters.',
+            'c_password.required' => 'The password confirmation field is required.',
+            'c_password.min' => 'The password confirmation must be at least 6 characters.',
         ];
     }
 }
