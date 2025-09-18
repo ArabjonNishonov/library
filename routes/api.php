@@ -48,7 +48,7 @@ Route::middleware('auth:sanctum')->group(function(){
             Route::get('expireds/{rent}', [ClientController::class, 'expiredBook']);
         });
     });
-    ROute::prefix('statistics')->group(function(){
+    Route::prefix('statistics')->group(function(){
         Route::get('now-rented-books', [BookController::class, 'nowRentedBooks']);
         Route::get('most-active-books', [BookController::class, 'mostActiveBooks']);
     });
